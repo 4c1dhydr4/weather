@@ -46,7 +46,7 @@ ROOT_URLCONF = 'weather.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -114,6 +114,7 @@ USE_I18N = False
 USE_TZ = False
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = ((BASE_DIR/'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

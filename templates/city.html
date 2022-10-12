@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Weather API</h1>
+	<section>
+		<form method="POST" autocomplete="off">
+			{% csrf_token %}
+			{{ form.name }}
+			<input type="submit" name="submit" value="Add City">
+			<a href="{% url 'websocket' %}" target="_blank">Websocket Test</a>
+		</form>
+		{% for error in form.name.errors %}
+		    <span>{{ error }}</span>
+		{% endfor %}
+	</section>
+	<h1>Cities</h1>
+	<section class="cities">
+		{% for city in cities %}
+			<div>
+				<h2>{{ city.name }}</h2>
+				<h3>Week Avg: {{ city.avg }}°</h3>
+				<table>
+					<tbody>
+						{% for weather in city.weathers %}
+						<tr>
+							<td>
+								<img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
+							</td>
+							<td><h2>{{ weather.temperature }}°</h2></td>
+							<td>{{ weather.timestamp|date:" d/m/Y" }}</td>
+							<td>{{ weather.timestamp|date:" h:ia" }}</td>
+							<td>{{ weather.description}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		{% endfor %}
+	</section>
+{% endblock %}
