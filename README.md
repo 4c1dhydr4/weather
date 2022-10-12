@@ -24,5 +24,3 @@ Se puede utilizar database.backup para restaurar la base de datos con datos inic
 * [Redis](https://redis.io/) como Base de Datos para manejo de Channels
 * [Django Channels](https://channels.readthedocs.io/en/stable/) como async backend para Websockets.
 * [JavaScript](https://www.javascript.com/) como lenguaje de scripting para la lógica e interacción lado del cliente.
-
-Autor: [Luis Quiroz Burga](https://github.com/4c1dhydr4)
